@@ -70,3 +70,21 @@ img {
     z-index: 2;
   text-align: center;
 }
+.header{
+    color: #cd890c;
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+
+}
+.btn{
+    margin-right: 1rem ;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    padding: 1rem;
+    transition: all 1s;
+    &:hover{
+        background-color: #ff4500;
+    }
+}
