@@ -6,31 +6,31 @@ import Header from '../components/Header'
 const Home = () => {
 
   const [products, setProducts] = useState([])
- 
- 
-useEffect(()=>{
-  getProduct()
-}, [])
+  const [list, setlist] = useState([])
 
-const getProduct = () => {
-  const BASE_URL = 'https://fakestoreapi.com/products'
-  axios(BASE_URL)
-  .then((res) => {
-    setProducts(res.data)
-    
-  }).catch((err) => {
-    console.log(err)
-    
-  });
-}
+  useEffect(() => {
+    getProduct()
+  }, [])
+
+  const getProduct = () => {
+    const BASE_URL = 'https://fakestoreapi.com/products'
+    axios(BASE_URL)
+      .then((res) => {
+        setProducts(res.data)
+        setlist(res.data)
+
+      }).catch((err) => {
+        console.log(err)
+      });
+  }
   return (
     <>
-    <Header products={products} setProducts={setProducts} data={getProduct} />
-    <div className='card-container'>
-       {products.map((item)=> (
-      <ProductCard key={item.id} item={item} />
-    ))}
-    </div>
+      <Header products={products} list={list} setlist={setlist} />
+      <div className='card-container'>
+        {list.map((item) => (
+          <ProductCard key={item.id} item={item} />
+        ))}
+      </div>
     </>
   )
 
